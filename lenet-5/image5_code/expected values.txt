@@ -1,0 +1,8 @@
+For 0: nvdla.dbb_adaptor: GP: iswrite=1 addr=0xc000c008 len=8 data=0x 0000011c 00000000 
+
+
+
+for 5:
+iswrite=1 addr=0xc000c000 len=8 data=0x 06e3ebd4 f4f137f7
+
+iswrite=1 addr=0xc000c008 len=8 data=0x 00003310 00000000
