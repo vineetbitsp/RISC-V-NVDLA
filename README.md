@@ -32,8 +32,7 @@ $ python3 machine_code_clean.py
 Note: The offset address in program memory where machine code is stored must be inserted in the .mem file.
 
 
----
-### **Step 2: Generating `.bin` File of Weights (for DRAM)**
+### **🔗 Step 2: Generating `.bin` File of Weights (for DRAM)**
 
 These steps are used to generate a `.bin` file of weights to be loaded in DRAM:
 
@@ -49,3 +48,4 @@ $ python3 remove_duplicates_divideBy4.py
 $ python3 fill_missing_addr.py
 $ python3 clean_weights.py 
 $ python3 weights2bin.py
+
