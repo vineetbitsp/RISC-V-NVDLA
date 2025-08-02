@@ -31,9 +31,13 @@ $ python3 machine_code_clean.py
 
 Note: The offset address in program memory where machine code is stored must be inserted in the .mem file.
 
-Step 2: Generating .bin File of Weights (for DRAM)
-Steps to generate .bin file of weights to be loaded in DRAM:
-Switch to the dmem directory inside lenet-5 and execute the Python scripts in the following sequence to generate a .bin file:
+### **Step 2: Generating `.bin` File of Weights (for DRAM)**
+
+These steps are used to generate a `.bin` file of weights to be loaded in DRAM:
+
+1. Switch to the `dmem` directory inside `lenet-5`.
+2. Execute the Python scripts in the following sequence:
+```bash
 $ python3 dbb_lines_extract.py
 $ python3 dbb_lines2_weights.py 
 $ python3 subtract_c0.py 
@@ -43,4 +47,3 @@ $ python3 remove_duplicates_divideBy4.py
 $ python3 fill_missing_addr.py
 $ python3 clean_weights.py 
 $ python3 weights2bin.py
-Note: The offset address at which the weight file is stored in DRAM is given by the first entry in the output file of weights_sorted.py and must be specified while storing the weight file in DRAM.
