@@ -49,3 +49,4 @@ $ python3 fill_missing_addr.py
 $ python3 clean_weights.py 
 $ python3 weights2bin.py
 ```
+Note: The offset address at which the weight file is stored in DRAM is given by the first entry in the output file of weights_sorted.py and must be specified while storing the weight file in DRAM.
