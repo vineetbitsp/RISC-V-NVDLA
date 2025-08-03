@@ -144,3 +144,50 @@ Press Ctrl+A, then X.
 ```bash
 mv sc.log /home/vineet/sc.log
 ```
+### Hardware (RTL) Generation for nv_full NVDLA
+```bash
+# Clone the NVDLA hardware repository
+git clone https://github.com/nvdla/hw.git
+cd hw
+
+# Run initial make to set up environment
+make
+```
+```swift
+Creating tree.make to setup your working environment and projects
+Enter project names      (Press ENTER to use: nv_full):
+Enter c pre-processor path (Press ENTER to use: /home/utils/gcc-4.9.3/bin/cpp): /usr/bin/cpp
+Enter g++ path           (Press ENTER to use: /home/utils/gcc-4.9.3/bin/g++): /usr/bin/g++
+Enter perl path          (Press ENTER to use: /home/utils/perl-5.8.8/bin/perl): /usr/bin/perl
+Enter java path          (Press ENTER to use: /home/utils/java/jdk1.8.0_131/bin/java): /usr/bin/java
+Enter systemc path       (Press ENTER to use: /usr/local/systemc-2.3.0/): /usr/local/systemc-2.3.0
+OPTIONAL: Enter verilator path (Press ENTER to use: verilator):
+OPTIONAL: Enter clang path     (Press ENTER to use: clang):
+=====================================================================
+tree.make is created successfully, and you can edit tree.make manually if necessary
+=====================================================================
+```
+```bash
+./tools/bin/tmake -build vmod
+```
+```swift
+==============================================
+files are generated under /home/vineet/hw/outdir/nv_full/vmod/nvdla/top
+==============================================
+make: Leaving directory '/home/vineet/hw/vmod/nvdla/top'
+logfile: outdir/build.log
+==============================================
+Filehandle GEN1 opened only for input at /usr/local/share/perl/5.34.0/IO/Tee.pm line 132.
+==================BUILD PASS==================
+Filehandle GEN1 opened only for input at /usr/local/share/perl/5.34.0/IO/Tee.pm line 132.
+==============================================
+```
+#### Global Parameter Definition for nv_full RTL
+
+Add the following global defines when working with the nv_full RTL:
+```verilog
+`define SYNTHESIS
+`define DESIGNWARE_NOEXIST
+
+
+```
