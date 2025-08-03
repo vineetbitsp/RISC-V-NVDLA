@@ -1,3 +1,37 @@
+
+
+
+## Software generation for nv_full_nvdla for a DNN model simulation in Vivado design suite
+
+### 1. Steps to generate `.s` assembly file to load into program memory of RISC-V:
+First, generate `sc.log` file by running NVDLA loadable (`.nvdla` file) of a given Caffe model in NVDLA VP.  
+Use Python scripts in `pmem` directory and execute them in the following sequence to generate `.s` file:
+
+```bash
+$ git clone https://github.com/vineetbitsp/riscv-nvdla.git
+$ git checkout nv_full_nvdla
+$ cd Resnet18_sw/pmem/
+
+$ python3 csb_lines_extract.py
+$ python3 csb2txn.py 
+$ python3 txn2riscv.py 
+$ python3 riscv_update.py
+```
+### 2. Steps to generate .mem file of weights to be loaded in RAM:
+Switch to dmem directory inside Resnet-18_sw folder and execute the Python scripts in the following sequence to generate .mem file:
+```bash
+$ python3 dbb_lines_extract.py
+$ python3 dbb_lines2_weights.py
+$ python3 weights_sorted.py
+$ python3 divideby4.py
+$ python3 remove_duplicates_divideBy4.py
+$ python3 fill_missing_addr.py
+$ python3 clean_weights.py
+$ python3 insert_addr_offset.py
+```
+
+
+
 ---
 
 ## Procedure to Generate `sc.log` for **nv_full** NVDLA in Virtual Platform
