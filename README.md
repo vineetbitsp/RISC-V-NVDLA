@@ -1,6 +1,6 @@
 
 ## Software Development Flow
-![Software Development Flow](https://github.com/vineetbitsp/riscv-nvdla/blob/nv_small_nvdla/docs/images/SW_flow.jpg)
+[Software Development Flow](https://github.com/vineetbitsp/riscv-nvdla/blob/nv_small_nvdla/docs/images/SW_flow.jpg)
 
 
 
