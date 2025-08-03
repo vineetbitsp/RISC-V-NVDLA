@@ -1,6 +1,8 @@
 
 ## Software Development Flow
-![Software Development Flow](docs/images/SW_flow.jpg)
+![Software Development Flow](https://github.com/vineetbitsp/riscv-nvdla/blob/nv_small_nvdla/docs/images/SW_flow.jpg)
+
+
 
 ## Software generation for nv_full_nvdla for a DNN model simulation in Vivado design suite
 ### 1. Steps to generate `.s` assembly file to load into program memory of RISC-V:
