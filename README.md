@@ -1,8 +1,8 @@
 
-
+## Software Development Flow
+![Software Development Flow](docs/images/SW_flow.jpg)
 
 ## Software generation for nv_full_nvdla for a DNN model simulation in Vivado design suite
-
 ### 1. Steps to generate `.s` assembly file to load into program memory of RISC-V:
 First, generate `sc.log` file by running NVDLA loadable (`.nvdla` file) of a given Caffe model in NVDLA VP.  
 Use Python scripts in `pmem` directory and execute them in the following sequence to generate `.s` file:
