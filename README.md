@@ -192,3 +192,82 @@ Test pass
 (ctrl+a then x to exit)
 mv sc.log /home/vineet/sc.log
 ```
+### Hardware (RTL) Generation for nv_small NVDLA
+```bash
+# Clone the NVDLA hardware repository
+git clone https://github.com/nvdla/hw.git
+cd hw
+
+# Checkout nv_small configuration
+git checkout nv_small 
+
+# Run initial make to set up environment
+make
+```
+```swift
+Creating tree.make to setup your working environment and projects
+Enter project names      (Press ENTER if use: nv_small ):
+Using designware or not [1 for use/0 for not use] (Press ENTER if use: 1): 0
+Enter design ware path (Press ENTER if use: /home/tools/synopsys/syn_2011.09/dw/sim_ver):
+Enter c pre-processor path (Press ENTER if use: /home/utils/gcc-4.8.2/bin/cpp): /usr/bin/cpp
+Enter gcc path             (Press ENTER if use: /home/utils/gcc-4.8.2/bin/gcc): /usr/bin/gcc
+Enter g++ path             (Press ENTER if use: /home/utils/gcc-4.8.2/bin/g++): /usr/bin/g++
+Enter perl path            (Press ENTER if use: /home/utils/perl-5.10/5.10.0-threads-64/bin/perl): /usr/bin/perl
+Enter java path            (Press ENTER if use: /home/utils/java/jdk1.8.0_131/bin/java): /usr/bin/java
+Enter systemc path         (Press ENTER if use: /home/ip/shared/inf/SystemC/1.0/20151112/systemc-2.3.0/GCC472_64_DBG): /usr/local/systemc-2.3.0
+Enter python path          (Press ENTER if use: /home/tools/continuum/Anaconda3-5.0.1/bin/python): /usr/bin/python
+Enter vcs_home path        (Press ENTER if use: /home/tools/vcs/mx-2016.06-SP2-4):
+Enter novas_home path      (Press ENTER if use: /home/tools/debussy/verdi3_2016.06-SP2-9):
+Enter verdi_home path      (Press ENTER if use: /home/tools/debussy/verdi3_2016.06-SP2-9):
+OPTIONAL: Enter verilator path (Press ENTER to use: verilator):
+OPTIONAL: Enter clang path     (Press ENTER to use: /home/utils/llvm-4.0.1/bin/clang):
+=====================================================================
+tree.make is created successfully, and you can edit tree.make manually if necessary
+=====================================================================
+```
+Build Verilog Models
+```bash
+./tools/bin/tmake -build vmod
+
+```
+```markdown
+[TMAKE]: outdir does not exist, creating before build
+[TMAKE]: building nv_small in spec/defs 
+[TMAKE]: building nv_small in spec/manual 
+[TMAKE]: building nv_small in spec/odif 
+[TMAKE]: building nv_small in vmod/vlibs 
+[TMAKE]: building nv_small in vmod/include 
+[TMAKE]: building nv_small in vmod/rams/model 
+[TMAKE]: building nv_small in vmod/rams/synth 
+[TMAKE]: building nv_small in vmod/rams/fpga/small_rams 
+[TMAKE]: building nv_small in vmod/nvdla/apb2csb 
+[TMAKE]: building nv_small in vmod/nvdla/cdma 
+[TMAKE]: building nv_small in vmod/nvdla/cbuf 
+[TMAKE]: building nv_small in vmod/nvdla/csc 
+[TMAKE]: building nv_small in vmod/nvdla/cmac 
+[TMAKE]: building nv_small in vmod/nvdla/cacc 
+[TMAKE]: building nv_small in vmod/nvdla/sdp 
+[TMAKE]: building nv_small in vmod/nvdla/pdp 
+[TMAKE]: building nv_small in vmod/nvdla/cfgrom 
+[TMAKE]: building nv_small in vmod/nvdla/cdp 
+[TMAKE]: building nv_small in vmod/nvdla/bdma 
+[TMAKE]: building nv_small in vmod/nvdla/rubik 
+[TMAKE]: building nv_small in vmod/nvdla/car 
+[TMAKE]: building nv_small in vmod/nvdla/glb 
+[TMAKE]: building nv_small in vmod/nvdla/csb_master 
+[TMAKE]: building nv_small in vmod/nvdla/nocif 
+[TMAKE]: building nv_small in vmod/nvdla/retiming 
+[TMAKE]: building nv_small in vmod/nvdla/top 
+[TMAKE]: DONE
+```
+#### Global Parameter Definition for nv_small RTL
+
+Add the following global defines when working with the nv_small RTL:
+```verilog
+`define SYNTHESIS
+`define DESIGNWARE_NOEXIST
+`define VLIB_BYPASS_POWER_CG
+`define NV_FPGA_FIFOGEN
+`define FPGA
+`define FIFOGEN_MASTER_CLK_GATING_DISABLED
+```
