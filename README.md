@@ -17,8 +17,7 @@ These steps are used to initialize program memory of RISC‑V for a DNN model:
 
 1. **Generate `sc.log` file** by running NVDLA loadable (`.nvdla` file) of a given Caffe model.
 2. Run `assembly.py` followed by `minus_c0.py` file to generate `model.s` file.
-3. Use RISC‑V toolchain to generate machine code.  
-   > *We used Codasip Studio SDK to generate machine code for `model.s`.*
+3. Use RISC‑V toolchain or SDK to generate machine code.     
 4. Process `machine_code_model.txt` using `clean_machine_code.py` to generate `.mem` file and insert an offset address in the file if required.
 
 #### **Commands to Generate `.mem` File**
