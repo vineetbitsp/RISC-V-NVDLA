@@ -44,10 +44,10 @@ Use the following command to compile the Lenet model:
 ./nvdla_compiler --informat nchw --prototxt lenet.prototxt --caffemodel lenet.caffemodel
 ```
 ```bash
-docker pull nvdla/vp
-docker run -it -v /home:/home nvdla/vp
-cd /usr/local/nvdla
-ls
+$ docker pull nvdla/vp
+$ docker run -it -v /home:/home nvdla/vp
+# cd /usr/local/nvdla
+# ls
 
 Image                       efi-virtio.rom        nvdla_runtime
 LICENSE                     init_dla.sh           opendla_1.ko
@@ -57,26 +57,28 @@ drm.ko                      nvdla_compiler
 ```
 
 ```bash
-git clone https://github.com/nvdla/hw.git
-cd hw/
-make   # Hit Enter to select nv_full
+# git clone https://github.com/nvdla/hw.git
+# cd hw/
+# make   # Hit Enter to select nv_full
 ```
 ```swift
-CPP  := /usr/bin/cpp
-GCC  := /usr/bin/gcc
-CXX  := /usr/bin/g++
-PERL := /usr/bin/perl
-JAVA := /usr/bin/java
-SYSTEMC := /usr/local/systemc-2.3.0
-PYTHON := /usr/bin/python
-VCS_HOME := /home/tools/vcs/mx-2016.06-SP2-4
-NOVAS_HOME := /home/tools/debussy/verdi3_2016.06-SP2-9
-VERDI_HOME := /home/tools/debussy/verdi3_2016.06-SP2-9
-VERILATOR := /usr/bin/verilator
-CLANG := /usr/bin/clang
+Creating tree.make to setup your working environment and projects
+Enter project names      (Press ENTER to use: nv_full):
+Enter c pre-processor path (Press ENTER to use: /home/utils/gcc-4.9.3/bin/cpp):/usr/bin/cpp
+Enter g++ path           (Press ENTER to use: /home/utils/gcc-4.9.3/bin/g++):/usr/bin/g++
+Enter perl path          (Press ENTER to use: /home/utils/perl-5.8.8/bin/perl):/usr/bin/perl
+Enter java path          (Press ENTER to use: /home/utils/java/jdk1.8.0_131/bin/java):/usr/bin/java
+Enter systemc path       (Press ENTER to use: /usr/local/systemc-2.3.0/):/usr/local/systemc-2.3.0
+OPTIONAL: Enter verilator path (Press ENTER to use: verilator):
+OPTIONAL: Enter clang path     (Press ENTER to use: clang):
+
+=====================================================================
+tree.make is created successfully, and you can edit tree.make manually if necessary
+=====================================================================
+
 ```
 ```bash
-./tools/bin/tmake -build cmod_top
+# ./tools/bin/tmake -build cmod_top
 ```
 ```swift
 ==================BUILD PASS==================
@@ -84,9 +86,9 @@ files are generated under /usr/local/nvdla/hw/outdir/nv_full/cmod
 ```
 ```bash
 cd /usr/local/nvdla
-git clone https://github.com/nvdla/vp.git
-cd vp
-echo -e "[url \"https://github.com/qemu/\"]\n\
+# git clone https://github.com/nvdla/vp.git
+# cd vp
+# echo -e "[url \"https://github.com/qemu/\"]\n\
 insteadOf = git://git.qemu-project.org\n\
 \n[url \"https://github.com/qemu/\"]\n\
 insteadOf = git://git.qemu.org\n\
