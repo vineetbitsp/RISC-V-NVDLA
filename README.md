@@ -121,7 +121,7 @@ cd /mnt
 
 # Load drivers
 insmod drm.ko 
-insmod opendla_2.ko 
+insmod opendla_1.ko 
 
 # Run inference
 ./nvdla_runtime --loadable fast-math.nvdla --rawdump --image eight_invert.pgm
