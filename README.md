@@ -1,4 +1,4 @@
-# RISC-V + [NVDLA](https://nvdla.org/) 
+# RISC-V + [NVDLA](https://nvdla.org/) Software
 <p align="justify"> 
 This repository presents an open-source software generation flow that can be used to run a Caffe neural network model on any RISC-V + <a href="https://nvdla.org/">NVDLA</a> based SoC without need of a Linux kernel. The software development flow described below generates RISC‑V assembly/machine code and extracts neural network weights from a Caffe model. The Caffe model is first compiled using the NVDLA compiler and executed on NVDLA’s virtual platform (VP). During execution, interface-level transactions such as configuration bus (CSB) and system data bus (DBB) are logged for analysis. The logs tagged with nvdla.csb_adaptor are parsed to extract register accesses, which are translated into read_reg or write_reg commands based on the access type and compiled into RISC‑V assembly for loading into program memory. Similarly, logs tagged with nvdla.dbb_adaptor are examined to identify memory transactions, allowing weights to be isolated and stored into data memory. The python scripts were used to implement this flow.  
 </p>
