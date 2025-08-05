@@ -144,11 +144,11 @@ mv sc.log /home/vineet/sc.log
 ### Hardware (RTL) Generation for nv_full NVDLA
 ```bash
 # Clone the NVDLA hardware repository
-git clone https://github.com/nvdla/hw.git
-cd hw
+$ git clone https://github.com/nvdla/hw.git
+$ cd hw
 
 # Run initial make to set up environment
-make
+$ make
 ```
 ```swift
 Creating tree.make to setup your working environment and projects
